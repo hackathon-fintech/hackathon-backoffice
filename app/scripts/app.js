@@ -185,7 +185,7 @@ angular
       })
       .state('dashboard.userRequirements', {
         templateUrl: 'views/userRequirements.html',
-        url: '/userRequirements',
+        url: '/userRequirements?user',
         controller: 'UserRequirementsCtrl',
         resolve: {
           loadMyFile: function($ocLazyLoad) {

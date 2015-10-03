@@ -7,14 +7,20 @@
  * Controller of the sbAdminApp
  */
 angular.module('sbAdminApp')
-	.controller('UserRequirementsCtrl', function($scope) {
+	.controller('UserRequirementsCtrl', function($scope, $stateParams) {
+
+		$scope.user = JSON.parse($stateParams.user);
+		console.log($scope.user);
+
+		$scope.$parent.api.branch.getJson({
+			rut: $scope.user.rut
+		}).then(function(response){
+			console.log(response)
+		}, function(error){
+			console.log(error)
+		})
 
 		$scope.toggle = true;
-
-		$scope.example = {}
-		$scope.example.firstName = 'Juan Segura';
-		$scope.example.account = '77777777777-7';
-		$scope.example.amount = '300.000'
 
 		$scope.changeToggle = function(){
 			if($scope.toggle){

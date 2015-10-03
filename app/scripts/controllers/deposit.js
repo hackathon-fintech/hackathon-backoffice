@@ -23,8 +23,11 @@ angular.module('sbAdminApp')
 		//Predefine options for table
 		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);
 
-		$scope.toUserRequirements = function() {
-			$state.go('dashboard.userRequirements');
+		// Move to Requirements view
+		$scope.toUserRequirements = function(user) {
+			$state.go('dashboard.userRequirements', {
+				user: JSON.stringify(user)
+			});
 		}
 
 	});
