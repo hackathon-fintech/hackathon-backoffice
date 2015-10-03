@@ -13,6 +13,7 @@ angular
     'ui.router',
     'ui.bootstrap',
     'angular-loading-bar',
+    'datatables'
   ])
   // .run(function($rootScope) {
   //   $rootScope.api = swaggerClient(TutenSchema);
@@ -177,6 +178,22 @@ angular
               $ocLazyLoad.load({
                 name: 'sbAdminApp',
                 files: ['scripts/controllers/emergencies.js']
+              })
+          }
+        }
+      })
+      .state('dashboard.userRequirements', {
+        templateUrl: 'views/userRequirements.html',
+        url: '/userRequirements',
+        controller: 'UserRequirementsCtrl',
+        resolve: {
+          loadMyFile: function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name: 'userRequirements.js'
+              }),
+              $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: ['scripts/controllers/userRequirements.js']
               })
           }
         }
