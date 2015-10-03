@@ -11,28 +11,39 @@ angular.module('sbAdminApp')
 
 		$scope.user = JSON.parse($stateParams.user);
 		console.log($scope.user);
+		$scope.deposits = [];
 
 		$scope.$parent.api.branch.getJson({
 			rut: $scope.user.rut
-		}).then(function(response){
+		}).then(function(response) {
 			console.log(response)
-		}, function(error){
+			$scope.deposits = response
+		}, function(error) {
 			console.log(error)
 		})
 
 		$scope.toggle = true;
 
-		$scope.changeToggle = function(){
-			if($scope.toggle){
+		$scope.changeToggle = function() {
+			if ($scope.toggle) {
 				$scope.toggle = false;
-			} else{
+			} else {
 				$scope.toggle = true;
 			}
-		}		
+		}
 
-		$scope.getTodaysDate = function(){
-			var today = new Date();			
+		$scope.getTodaysDate = function() {
+			var today = new Date();
 			return today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+		}
+
+		$scope.getTotal = function(detail) {
+			var total = 0;						
+			for (var i = 0; i < detail.length; i++) {				
+				total = total + detail[i].amount;
+			}
+
+			return total
 		}
 
 	});

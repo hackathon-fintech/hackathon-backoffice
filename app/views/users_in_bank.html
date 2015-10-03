@@ -19,23 +19,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Matias</td>
-                                <td>No</td>
-                                <td>Si</td>                                
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Miguel</td>
-                                <td>No</td>
-                                <td>No</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Gustavo</td>
-                                <td>Si</td>
-                                <td>No</td>
+                            <tr ng-repeat="user in users">
+                                <td><img src="../images/mike_thumb.jpg" id="thumb_$index" class="thumb-element" alt="Lobster Lover" /></td>
+                                <td>{{user.firstName}}</td>
+                                <td>{{user.specialAssistance ? 'Si' : 'No'}}</td>
+                                <td>{{user.premium ? 'Si' : 'No'}}</td>                                
                             </tr>
                         </tbody>
                     </table>
