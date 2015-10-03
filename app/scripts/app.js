@@ -12,11 +12,12 @@ angular
     'oc.lazyLoad',
     'ui.router',
     'ui.bootstrap',
+    'swagger-client',
     'angular-loading-bar',
   ])
-  // .run(function($rootScope) {
-  //   $rootScope.api = swaggerClient(TutenSchema);
-  // })
+  .run(function($rootScope,swaggerClient) {
+     $rootScope.api = swaggerClient(BancoInteligenteSchema);
+  })
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
     $ocLazyLoadProvider.config({

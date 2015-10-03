@@ -2,12 +2,9 @@ fetchSchema = require 'fetch-swagger-schema'
 fs = require 'fs'
 _ = require 'lodash'
 
-basePath = "http://dev.tuten.cl:8080"
-# basePath = ""
-# basePath = "http://localhost:8080"
+basePath = "http://hackathonbi.cloudapp.net:8080"
 
-# apiDocs =  "http://localhost:8080/TutenREST/rest/api-docs" # basePath + "/TutenREST/rest/api-docs"
-apiDocs = basePath + "/TutenREST/rest/api-docs"
+apiDocs = basePath + "/banco-inteligente/rest/api-docs"
 
 fetchSchema apiDocs, (err, schema) ->
   throw err if err
@@ -18,4 +15,4 @@ fetchSchema apiDocs, (err, schema) ->
 
   console.log 'schema', JSON.stringify schema, null, 2
 
-  fs.writeFileSync 'tuten.js', "basePath = '#{basePath}/TutenREST/rest';\nTutenSchema = #{JSON.stringify schema, null, 2};"
+  fs.writeFileSync 'bancointeligente.js', "basePath = '#{basePath}/banco-inteligente/rest';\nBancoInteligenteSchema = #{JSON.stringify schema, null, 2};"
