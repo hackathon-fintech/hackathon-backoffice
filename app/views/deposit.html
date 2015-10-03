@@ -16,35 +16,19 @@
                                 <th>Nombre</th>
                                 <th>¿Necesidades especiales?</th>
                                 <th>¿Premium?</th>
+                                <th>Trámite</th>
                                 <th>Más</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr ng-repeat="user in users">
                                 <td>1</td>
-                                <td>Matias</td>
-                                <td>No</td>
-                                <td>Si</td>
+                                <td>{{user.firstName}}</td>
+                                <td>{{user.specialAssistance ? 'Si' : 'No'}}</td>
+                                <td>{{user.premium? 'Si': 'No'}}</td>
+                                <td>{{user.action}}</td>
                                 <td>
-                                    <button type="button" ng-click="toUserRequirements()"><i class="fa fa-search"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Miguel</td>
-                                <td>No</td>
-                                <td>No</td>
-                                <td>
-                                    <button type="button" ng-click="toUserRequirements()"><i class="fa fa-search"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Gustavo</td>
-                                <td>Si</td>
-                                <td>No</td>
-                                <td>
-                                    <button type="button" ng-click="toUserRequirements()"><i class="fa fa-search"></i></button>
+                                    <button type="button" class="btn btn-default btn-circle" ng-click="toUserRequirements()"><i class="fa fa-search"></i></button>
                                 </td>
                             </tr>
                         </tbody>
