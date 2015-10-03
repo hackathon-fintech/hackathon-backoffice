@@ -81,3 +81,12 @@ body {
 text-decoration: none;
 background-color: #eee;
 }
+
+.thumb-element{
+  width: 200px;
+  height: 200px;
+  -moz-border-radius: 50%; 
+  -webkit-border-radius: 50%; 
+  border-radius: 50%;
+  border: 4px solid #B1B1B1;
+}
