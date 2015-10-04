@@ -15,7 +15,7 @@ angular.module('sbAdminApp')
 
 		$scope.$parent.api.branch.getJsonAll({
 			branchName: 'MONEDA',
-			active: 'all'
+			action: 'TELLER'
 		}).then(function(response) {
 			console.log(response);
 			$scope.users = response;

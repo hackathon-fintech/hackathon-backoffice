@@ -5,11 +5,11 @@
     <!-- /.col-lg-12 -->
 </div>
 <div class="row">
-    <div class="col-lg-12">        
+    <div class="col-lg-12">
         <button type="button" class="btn btn-primary" ng-if="toggle" ng-click="changeToggle()">Editar</button>
-        <button type="button" class="btn btn-primary" ng-if="!toggle" ng-click="changeToggle()">Guardar</button> 
+        <button type="button" class="btn btn-primary" ng-if="!toggle" ng-click="changeToggle()">Guardar</button>
         <br>
-        <br>               
+        <br>
         <div class="panel panel-default" ng-repeat="deposit in deposits">
             <div class="panel-body">
                 <form role="form">
@@ -18,7 +18,7 @@
                     <div class="form-group" ng-if="toggle">
                         <label>Nombre del depositador</label>
                         <p class="form-control-static">{{deposit.fromName}}</p>
-                        <label>Nombre del titular del depósito</label>
+                        <label>Nombre titular de la cuenta a depositar</label>
                         <p class="form-control-static">{{deposit.toName}}</p>
                         <label>Número de cuenta</label>
                         <p class="form-control-static">{{deposit.toAccount}}</p>
@@ -26,18 +26,8 @@
                         <p class="form-control-static">{{deposit.fromPhone}}</p>
                         <label>Monto</label>
                         <div ng-repeat="amount in deposit.detail">
-                            <p class="form-control-static" ng-if="amount.type == 0">
-                                <label>- $0:</label> ${{amount.amount}}</p>
-                            <p class="form-control-static" ng-if="amount.type == 5">
-                                <label>- $5:</label> ${{amount.amount}}</p>
-                            <p class="form-control-static" ng-if="amount.type == 10">
-                                <label>- $10:</label> ${{amount.amount}}</p>
-                            <p class="form-control-static" ng-if="amount.type == 50">
-                                <label>- $50:</label> ${{amount.amount}}</p>
-                            <p class="form-control-static" ng-if="amount.type == 100">
-                                <label>- $100:</label> ${{amount.amount}}</p>
-                            <p class="form-control-static" ng-if="amount.type == 500">
-                                <label>- $500:</label> ${{amount.amount}}</p>
+                            <p class="form-control-static" ng-if="amount.type == 'change'">
+                                <label>- Monedas:</label> ${{amount.amount}}</p>                                
                             <p class="form-control-static" ng-if="amount.type == 1000">
                                 <label>- $1.000:</label> ${{amount.amount}}</p>
                             <p class="form-control-static" ng-if="amount.type == 2000">
@@ -57,7 +47,7 @@
                         <p class="form-control-static">{{getTodaysDate()}}</p>
                         <br>
                         <button type="button" class="btn btn-primary" ng-click="sendDeposit('IGNORE', deposit)">Ignorar</button>
-                        <button type="button" class="btn btn-primary" ng-click="sendDeposit('DONE', deposit)">Guardar</button>                        
+                        <button type="button" class="btn btn-primary" ng-click="sendDeposit('DONE', deposit)">Guardar</button>
                     </div>
                     <div class="form-group" ng-if="!toggle">
                         <label>Nombre del depositador</label>
@@ -67,8 +57,22 @@
                         <label>Número de cuenta</label>
                         <input class="form-control" ng-model="deposit.toAccount">
                         <label>Teléfono</label>
-                        <input class="form-control" ng-model="deposit.fromPhone">
+                        <input class="form-control" ng-model="deposit.fromPhone">                        
                         <label>Monto</label>
+                        <div ng-repeat="amount in deposit.detail">
+                            <label ng-if="amount.type == 'change'"> Monedas:</label>
+                            <input type="number" class="form-control" ng-if="amount.type == 'change'" ng-model="amount.amount">
+                            <label ng-if="amount.type == '1000'"> $1000:</label>
+                            <input type="number" class="form-control" ng-if="amount.type == '1000'" ng-model="amount.amount">
+                            <label ng-if="amount.type == '2000'"> $2000:</label>
+                            <input type="number" class="form-control" ng-if="amount.type == '2000'" ng-model="amount.amount">
+                            <label ng-if="amount.type == '5000'"> $5000:</label>
+                            <input type="number" class="form-control" ng-if="amount.type == '5000'" ng-model="amount.amount">
+                            <label ng-if="amount.type == '10000'"> $10000:</label>
+                            <input type="number" class="form-control" ng-if="amount.type == '10000'" ng-model="amount.amount">
+                            <label ng-if="amount.type == '20000'"> $20000:</label>
+                            <input type="number" class="form-control" ng-if="amount.type == '20000'" ng-model="amount.amount">
+                        </div>
                         <label>Fecha</label>
                         <p class="form-control-static">{{getTodaysDate()}}</p>
                         <br>

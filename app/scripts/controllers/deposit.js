@@ -8,20 +8,20 @@
  */
 angular.module('sbAdminApp')
 	.controller('DepositCtrl', function($scope, $state, DTOptionsBuilder) {
+		//Predefine options for table
+		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);
+
 		$scope.users = {}
 
 		$scope.$parent.api.branch.getJsonAll({
 			branchName: 'MONEDA',
-			action: 'teller'
+			action: 'TELLER'
 		}).then(function(response) {
 			console.log(response);
 			$scope.users = response;
 		}, function(error) {
 			console.log(error);
 		})
-
-		//Predefine options for table
-		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);
 
 		// Move to Requirements view
 		$scope.toUserRequirements = function(user) {
