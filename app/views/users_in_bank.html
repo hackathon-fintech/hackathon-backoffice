@@ -23,7 +23,8 @@
                         <tr ng-repeat="user in users">
                             <td><img src="../images/mike_thumb.jpg" id="thumb_$index" class="thumb-element" alt="Lobster Lover" /></td>
                             <td>{{user.firstName}}</td>
-                            <td>{{getYesOrNo(user.specialAssistance)}}</td>
+                            <td ng-if="user.specialAssistance"><div class="alert alert-danger" role="alert"><i class="glyphicon glyphicon-alert"></i> Requiere asistencia</div></td>
+                            <td ng-if="!user.specialAssistance">No</td>
                             <td>{{user.premium ? 'Si' : 'No'}}</td>
                         </tr>
                     </tbody>

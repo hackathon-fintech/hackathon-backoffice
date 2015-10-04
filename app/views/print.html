@@ -1,1 +1,123 @@
-Hola tavorinos
+<div class="row">
+	<div class="voucher-container">
+		<div class="col-md-12"><img src="../images/logo-banco.png" /></div>
+		<div id="user-data" class="col-md-4">
+			<form>
+				<div class="form-group">
+					<label for="account-number">N&uacute;mero de cuenta</label>
+					<div class="input-group">
+						<div class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></div>
+						<input type="text" class="form-control" id="account-number" value="1111-2222" readonly>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="account-name">Nombre del Titular</label>
+					<div class="input-group">
+						<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+						<input type="text" class="form-control" id="account-name" value="Juan Perez" readonly>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="date">Fecha</label>
+					<div class="input-group">
+						<div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
+						<input type="text" class="form-control" id="date" value="04 de Octubre 2015" readonly>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="account-number">Depositado por</label>
+					<div class="input-group">
+						<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+						<input type="text" class="form-control" id="account-number" value="Jorge Fuentes" readonly>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="phone-number">N&uacute;mero de tel&eacute;fono</label>
+					<div class="input-group">
+						<div class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></div>
+						<input type="text" class="form-control" id="phone-numbr" value="8765-4321" readonly>
+					</div>
+				</div>
+			</form>
+			<div id="bank-logo-container"></div>
+		</div>
+		<div class="col-md-3">
+			<div class="deposit-type-container">
+				<h4>Tipo de deposito</h4>
+				<form class="form-inline">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="element_1" value="option_1" disabled checked> Efectivo
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="element_2" value="option_2" disabled> Cheques del Banco
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="element_3" value="option_3" disabled> Cheques otros Bancos
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="element_4" value="option_4" disabled> Vale  Vista del Banco
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="element_5" value="option_5" disabled> Vale  Vista otros Bancos
+						</label>
+					</div>
+					<div class="form-group">
+						<label for="documents-number">N&uacute;mero de documentos</label>
+						<input type="number" class="form-control" id="documents-number" value="" readonly>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="deposit-data" class="col-md-5">
+			<h4>Detalle Efectivo / Documentos</h4>
+			<div id="deposit-detail">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="col-md-4">Denominaci&oacute;n</th>
+							<th>Cantidad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-md-4 text-right">20.000</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="col-md-4 text-right">10.000</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="col-md-4 text-right">5.000</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="col-md-4 text-right">1.000</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="col-md-4 text-right">Monedas</td>
+							<td>&nbsp;</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="active">
+							<td class="col-md-4 text-right"><h5>Total:</h5></td>
+							<td><h5>xx.xxx</h5></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

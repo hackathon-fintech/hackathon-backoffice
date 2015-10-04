@@ -115,3 +115,21 @@ background-color: #eee;
   background-color: #337ab7;
   border-color: #337ab7;
 }
+
+/* --- print ---- */
+
+.voucher-container{
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 15px;
+  border: solid 1px #d2d2d2;
+}
+
+.voucher-container h4{
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 10px;
+}
+
+.deposit-type-container{
+  line-height: 2.3em;
+}
