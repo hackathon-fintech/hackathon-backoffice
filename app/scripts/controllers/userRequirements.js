@@ -13,20 +13,41 @@ angular.module('sbAdminApp')
 		console.log($scope.user);
 		$scope.deposits = [];
 		$scope.details = [];
+		$scope.depositsDone = [];
+		$scope.emptyResponse = false;
 
 		$scope.$parent.api.branch.getJson({
-			rut: $scope.user.rut
-		}).then(function(response) {
-			console.log(response)
-			$scope.deposits = response
-			for (var i = 0; i < $scope.deposits.length; i++) {				
+			rut: $scope.user.rut,
+			token: window.localStorage['APP_SECRET']
+		}).then(function(response) {			
+			for (var i = 0; i < response.length; i++) {								
+				if (response[i].status != 'DONE' && response[i].status != 'IGNORE' && response[i].status != null) {
+					$scope.deposits.push(response[i]);
+				} else{
+					$scope.depositsDone.push(response[i]);	
+				}
+			}
+			console.log($scope.deposits);
+			for (var i = 0; i < $scope.deposits.length; i++) {
 				$scope.deposits[i].detail = getAmounts($scope.deposits[i].detail);
+			}
+			if ($scope.deposits.length == 0) {
+				$scope.emptyResponse = true
 			}
 		}, function(error) {
 			console.log(error)
 		})
 
 		$scope.toggle = true;
+
+		$scope.toPDF = function() {
+			var url = $state.href('print', {
+				deposits: JSON.stringify($scope.depositsDone)
+			});
+			window.open(url, '_blank');
+
+			$state.go('dashboard.deposit');
+		}
 
 		$scope.changeToggle = function() {
 			if ($scope.toggle) {
@@ -55,9 +76,11 @@ angular.module('sbAdminApp')
 			console.log(deposit);
 			$scope.$parent.api.branch.putJson({
 				rut: $scope.user.rut,
-				body: deposit
+				body: deposit,
+				token: window.localStorage["APP_SECRET"]
 			}).then(function(response) {
 				console.log(response);
+				$scope.deposits = response;
 				if (status == "DONE") {
 					alert("Éxito realizando depósito");
 				} else if (status == "IGNORE") {
@@ -69,7 +92,7 @@ angular.module('sbAdminApp')
 			})
 		}
 
-		function getAmounts(detail){
+		function getAmounts(detail) {
 			var superDetail = [{
 				type: 'change',
 				amount: 0

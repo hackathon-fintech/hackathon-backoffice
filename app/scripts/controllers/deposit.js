@@ -9,13 +9,14 @@
 angular.module('sbAdminApp')
 	.controller('DepositCtrl', function($scope, $state, DTOptionsBuilder) {
 		//Predefine options for table
-		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);
+		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);		
 
 		$scope.users = {}
 
 		$scope.$parent.api.branch.getJsonAll({
 			branchName: 'MONEDA',
-			action: 'TELLER'
+			action: 'TELLER',
+			token: window.localStorage["APP_SECRET"]
 		}).then(function(response) {
 			console.log(response);
 			$scope.users = response;

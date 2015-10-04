@@ -18,6 +18,7 @@ angular
   ])
   .run(function($rootScope, swaggerClient) {
     $rootScope.api = swaggerClient(BancoInteligenteSchema);
+    window.localStorage.setItem('APP_SECRET', '4m9fvhgi58gqqa5akuiv0al6t9');
   })
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
@@ -105,7 +106,19 @@ angular
       })
       .state('print', {
         templateUrl: 'views/print.html',
-        url: '/print'
+        url: '/print?deposits',
+        controller: 'PrintCtrl',
+        resolve: {
+          loadMyFile: function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+                name: 'print.js'
+              }),
+              $ocLazyLoad.load({
+                name: 'sbAdminApp',
+                files: ['scripts/controllers/print.js']
+              })
+          }
+        }
       })
       .state('dashboard.usersInBank', {
         templateUrl: 'views/users_in_bank.html',
