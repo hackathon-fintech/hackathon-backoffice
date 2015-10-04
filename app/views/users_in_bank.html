@@ -1,19 +1,9 @@
-<!--
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Clientes en el Banco</h1>
-    </div>
- 
-</div>
--->
-
 <div class="row">
     <br />
     <stats number="6" comments="En camino" colour="primary" type="car" goto="dashboard.usersInBank"></stats>
     <stats number="2" comments="Llegando" colour="yellow" type="flag-checkered" goto="dashboard.usersInBank"></stats>
     <stats number="5" comments="Esperando" colour="red" type="clock-o" goto="dashboard.usersInBank"></stats>
     <stats number="24" comments="Atendidos" colour="green" type="support" goto="dashboard.usersInBank"></stats>
-
     <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -22,11 +12,11 @@
             <div class="panel-body">
                 <table datatable="" dt-options="dtOptions" class="dataTable_wrapper table table-striped table-bordered table-hover row-border hover">
                     <thead>
-                        <tr>                                
+                        <tr>
                             <th>Foto</th>
                             <th>Nombre</th>
                             <th>¿Necesidades especiales?</th>
-                            <th>¿Premium?</th>                                
+                            <th>¿Premium?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,10 +24,13 @@
                             <td><img src="../images/mike_thumb.jpg" id="thumb_$index" class="thumb-element" alt="Lobster Lover" /></td>
                             <td>{{user.firstName}}</td>
                             <td>{{user.specialAssistance ? 'Si' : 'No'}}</td>
-                            <td>{{user.premium ? 'Si' : 'No'}}</td>                                
+                            <td>{{user.premium ? 'Si' : 'No'}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-circle" ng-click=""><i class="fa fa-search"></i></button>
+                            </td>
                         </tr>
                     </tbody>
-                </table>         
+                </table>
             </div>
         </div>
     </div>
