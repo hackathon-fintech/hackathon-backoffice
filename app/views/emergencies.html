@@ -1,10 +1,9 @@
 <div class="row">
-    
-        <br />
-            <stats number="0" comments="En camino" colour="primary" type="car" goto="dashboard.usersInBank"></stats>
-    <stats number="{{users.length}}" comments="Esperando" colour="yellow" type="flag-checkered" goto="dashboard.usersInBank"></stats>    
+    <br />
+    <stats number="{{1 - users.length}}" comments="En camino" colour="primary" type="car" goto="dashboard.usersInBank"></stats>
+    <stats number="{{users.length}}" comments="Esperando" colour="yellow" type="flag-checkered" goto="dashboard.usersInBank"></stats>
     <stats number="24" comments="Atendidos" colour="green" type="support" goto="dashboard.usersInBank"></stats>
-        <div class="col-lg-12">
+    <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class="dataTable_wrapper">
                 <div class="panel-heading">
