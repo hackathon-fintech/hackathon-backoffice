@@ -15,12 +15,20 @@ angular.module('sbAdminApp')
 
 		$scope.$parent.api.branch.getJsonAll({
 			branchName: 'MONEDA',
-			active: 'all'			
+			active: 'all'
 		}).then(function(response) {
 			console.log(response);
 			$scope.users = response;
 		}, function(error) {
 			console.log(error);
 		})
+
+		$scope.getYesOrNo = function(bool) {
+			if(bool){
+				return "Si"
+			} else{
+				return "No"
+			}
+		}
 
 	});
