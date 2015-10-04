@@ -15,8 +15,7 @@ angular.module('sbAdminApp')
 
 		function bringAll() {
 			$scope.$parent.api.branch.getJsonAll({
-				branchName: 'MONEDA',
-				action: "",
+				branchName: 'MONEDA',				
 				token: window.localStorage['APP_SECRET']
 			}).then(function(response) {
 				console.log(response);
@@ -25,6 +24,8 @@ angular.module('sbAdminApp')
 				console.log(error);
 			})
 		}
+
+		bringAll();	
 
 		setInterval(function() {
 			bringAll();

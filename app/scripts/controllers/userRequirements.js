@@ -15,6 +15,8 @@ angular.module('sbAdminApp')
 		$scope.details = [];
 		$scope.depositsDone = [];
 		$scope.emptyResponse = false;
+		$scope.check =[];
+		$scope.cash = [];
 
 		$scope.$parent.api.branch.getJson({
 			rut: $scope.user.rut,
@@ -120,10 +122,12 @@ angular.module('sbAdminApp')
 				for (var j = 0; j < superDetail.length; j++) {
 					if (detail[i].type == superDetail[j].type) {
 						superDetail[j].amount = detail[i].amount;
-						$scope.cash = true;
+						$scope.check.push(false);
+						$scope.cash.push(true);						
 						return superDetail
-					} else if (detail[i].type == 'CHECK') {
-						$scope.check = true;
+					} else if (detail[i].type == 'CHECK') {						
+						$scope.check.push(true);
+						$scope.cash.push(false);
 						return detail
 					}
 				}

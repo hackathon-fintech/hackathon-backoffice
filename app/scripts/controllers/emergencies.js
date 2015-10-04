@@ -14,8 +14,7 @@ angular.module('sbAdminApp')
 		$scope.users = {};
 
 		$scope.$parent.api.branch.getJsonAll({
-			branchName: 'MONEDA',
-			action: '',
+			branchName: 'MONEDA',			
 			token: window.localStorage['APP_SECRET']
 		}).then(function(response) {
 			console.log(response);

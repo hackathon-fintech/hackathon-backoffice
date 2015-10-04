@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="user in users">
-                            <td><img src="../images/mike_thumb.jpg" id="thumb_$index" class="thumb-element" alt="Lobster Lover" /></td>
+                            <td><img src="{{user.photoURL}}" id="thumb_$index" class="thumb-element" alt="Lobster Lover" /></td>
                             <td>{{user.firstName}}</td>
                             <td>{{user.specialAssistance ? 'Si' : 'No'}}</td>
                             <td>{{user.premium ? 'Si' : 'No'}}</td>
