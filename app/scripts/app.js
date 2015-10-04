@@ -16,8 +16,8 @@ angular
     'angular-loading-bar',
     'datatables'
   ])
-  .run(function($rootScope,swaggerClient) {
-     $rootScope.api = swaggerClient(BancoInteligenteSchema);
+  .run(function($rootScope, swaggerClient) {
+    $rootScope.api = swaggerClient(BancoInteligenteSchema);
   })
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
@@ -102,6 +102,10 @@ angular
       .state('login', {
         templateUrl: 'views/pages/login.html',
         url: '/login'
+      })
+      .state('print', {
+        templateUrl: 'views/print.html',
+        url: '/print'
       })
       .state('dashboard.usersInBank', {
         templateUrl: 'views/users_in_bank.html',
