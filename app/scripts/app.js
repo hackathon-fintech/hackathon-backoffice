@@ -19,6 +19,7 @@ angular
   .run(function($rootScope, swaggerClient) {
     $rootScope.api = swaggerClient(BancoInteligenteSchema);
     window.localStorage.setItem('APP_SECRET', '4m9fvhgi58gqqa5akuiv0al6t9');
+    $rootScope.atendidos = 24;
   })
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 

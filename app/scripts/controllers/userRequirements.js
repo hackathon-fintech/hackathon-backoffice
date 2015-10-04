@@ -7,7 +7,7 @@
  * Controller of the sbAdminApp
  */
 angular.module('sbAdminApp')
-	.controller('UserRequirementsCtrl', function($scope, $stateParams, $state) {
+	.controller('UserRequirementsCtrl', function($scope, $stateParams, $state, $rootScope) {
 
 		$scope.user = JSON.parse($stateParams.user);
 		console.log($scope.user);
@@ -45,6 +45,7 @@ angular.module('sbAdminApp')
 		$scope.toPDF = function() {
 			for (var i = 0; i < $scope.depositsDone.length; i++) {
 				$scope.depositsDone[i].status = "VOUCHER"
+				$rootScope.atendidos = $rootScope.atendidos + 1;
 				$scope.$parent.api.branch.putJson({
 					rut: $scope.user.rut,
 					body: $scope.depositsDone[i],
