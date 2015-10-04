@@ -115,11 +115,3 @@ background-color: #eee;
   background-color: #337ab7;
   border-color: #337ab7;
 }
-
-.dataTables_length{
-  float: left;
-}
-
-.dataTables_filter{
-  float: right;
-}
