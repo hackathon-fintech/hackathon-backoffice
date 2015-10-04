@@ -23,7 +23,7 @@ angular.module('sbAdminApp')
 				$scope.users = response;
 			}, function(error) {
 				console.log(error);
-			})			
+			})
 		}
 
 		setInterval(function() {

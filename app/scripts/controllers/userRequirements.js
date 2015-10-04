@@ -41,6 +41,9 @@ angular.module('sbAdminApp')
 		$scope.toggle = true;
 
 		$scope.toPDF = function() {
+			for(var i = 0; i < $scope.depositsDone.length; i++){
+				$scope.depositsDone[i].status = "VOUCHER";
+			}
 			var url = $state.href('print', {
 				deposits: JSON.stringify($scope.depositsDone)
 			});
