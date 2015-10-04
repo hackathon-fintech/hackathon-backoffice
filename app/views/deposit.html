@@ -18,8 +18,7 @@
                                     <th>Foto</th>
                                     <th>Nombre</th>
                                     <th>¿Necesidades especiales?</th>
-                                    <th>¿Premium?</th>
-                                    <th>Trámite</th>
+                                    <th>¿Premium?</th>                                    
                                     <th>Más</th>
                                 </tr>
                             </thead>
@@ -29,8 +28,7 @@
                                     <td>{{user.firstName}}</td>
                                     <td ng-if="user.specialAssistance"><div class="alert alert-danger" role="alert"><i class="glyphicon glyphicon-alert"></i> Requiere asistencia</div></td>
                                     <td ng-if="!user.specialAssistance">No</td>
-                                    <td>{{user.premium? 'Si': 'No'}}</td>
-                                    <td>{{translate(user.action)}}</td>
+                                    <td>{{user.premium? 'Si': 'No'}}</td>                                    
                                     <td>
                                         <button type="button" class="btn btn-default btn-circle" ng-click="toUserRequirements(user)"><i class="fa fa-search"></i></button>
                                     </td>

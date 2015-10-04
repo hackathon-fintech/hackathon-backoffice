@@ -15,8 +15,8 @@ angular.module('sbAdminApp')
 		$scope.details = [];
 		$scope.depositsDone = [];
 		$scope.emptyResponse = false;
-		$scope.check =[];
-		$scope.cash = [];
+		$scope.check = [];
+		$scope.cash = [];		
 
 		$scope.$parent.api.branch.getJson({
 			rut: $scope.user.rut,
@@ -34,7 +34,7 @@ angular.module('sbAdminApp')
 				$scope.deposits[i].detail = getAmounts($scope.deposits[i].detail);
 			}
 			if ($scope.deposits.length == 0) {
-				$scope.emptyResponse = true
+				$scope.emptyResponse = true;
 			}
 		}, function(error) {
 			console.log(error)
@@ -43,8 +43,18 @@ angular.module('sbAdminApp')
 		$scope.toggle = true;
 
 		$scope.toPDF = function() {
-			for(var i = 0; i < $scope.depositsDone.length; i++){
-				$scope.depositsDone[i].status = "VOUCHER";
+			for (var i = 0; i < $scope.depositsDone.length; i++) {
+				$scope.depositsDone[i].status = "VOUCHER"
+				$scope.$parent.api.branch.putJson({
+					rut: $scope.user.rut,
+					body: $scope.depositsDone[i],
+					token: window.localStorage["APP_SECRET"]
+				}).then(function(response) {
+					console.log(response);
+					$scope.deposits = response;
+				}, function(error) {
+					console.log(error);
+				})
 			}
 			var url = $state.href('print', {
 				deposits: JSON.stringify($scope.depositsDone)
@@ -123,9 +133,9 @@ angular.module('sbAdminApp')
 					if (detail[i].type == superDetail[j].type) {
 						superDetail[j].amount = detail[i].amount;
 						$scope.check.push(false);
-						$scope.cash.push(true);						
+						$scope.cash.push(true);
 						return superDetail
-					} else if (detail[i].type == 'CHECK') {						
+					} else if (detail[i].type == 'CHECK') {
 						$scope.check.push(true);
 						$scope.cash.push(false);
 						return detail
