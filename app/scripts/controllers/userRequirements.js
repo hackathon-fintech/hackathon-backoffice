@@ -47,11 +47,12 @@ angular.module('sbAdminApp')
 			return total
 		}
 
-		$scope.sendDeposit = function(status) {
+		$scope.sendDeposit = function(status, deposit) {
+			console.log(deposit);
 			$scope.deposits.status = status;
 			$scope.$parent.api.branch.putJson({
 				rut: $scope.user.rut,
-				body: $scope.deposits
+				body: deposit
 			}).then(function(response){
 				console.log(response);
 				alert("Éxito realizando depósito");
