@@ -19,12 +19,12 @@ angular.module('sbAdminApp')
 		$scope.$parent.api.branch.getJson({
 			rut: $scope.user.rut,
 			token: window.localStorage['APP_SECRET']
-		}).then(function(response) {			
-			for (var i = 0; i < response.length; i++) {								
-				if (response[i].status != 'DONE' && response[i].status != 'IGNORE' && response[i].status != null) {
+		}).then(function(response) {
+			for (var i = 0; i < response.length; i++) {
+				if (response[i].status == 'NEW') {
 					$scope.deposits.push(response[i]);
-				} else{
-					$scope.depositsDone.push(response[i]);	
+				} else if (response[i].status == 'DONE') {
+					$scope.depositsDone.push(response[i]);
 				}
 			}
 			console.log($scope.deposits);
@@ -117,6 +117,11 @@ angular.module('sbAdminApp')
 				for (var j = 0; j < superDetail.length; j++) {
 					if (detail[i].type == superDetail[j].type) {
 						superDetail[j].amount = detail[i].amount;
+						$scope.cash = true;
+						return superDetail
+					} else if (detail[i].type == 'CHECK') {
+						$scope.check = true;
+						return detail
 					}
 				}
 			}

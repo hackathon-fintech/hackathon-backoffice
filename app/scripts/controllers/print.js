@@ -8,7 +8,18 @@
  */
 angular.module('sbAdminApp')
 	.controller('PrintCtrl', function($scope, $stateParams) {
-		$scope.deposits = JSON.parse($stateParams.deposits);
+		$scope.deposits = JSON.parse($stateParams.deposits);		
+
+		for (var i = 0; i < $scope.deposits.length; i++) {
+			for(var j = 0; j < $scope.deposits[i].detail.length; j++){
+				if($scope.deposits[i].detail[j].type == 'CHECK'){
+					$scope.deposits[i].check =true;
+				} else{
+					$scope.deposits[i].cash = true;
+				}
+			}
+		}
+
 		console.log($scope.deposits);
 
 		$scope.getTodaysDate = function() {
