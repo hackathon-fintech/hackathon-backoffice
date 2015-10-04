@@ -162,7 +162,7 @@ angular
               }),
               $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/informations.js']
+                files: ['scripts/controllers/informations.js', 'scripts/directives/dashboard/stats/stats.js']
               })
           }
         }
