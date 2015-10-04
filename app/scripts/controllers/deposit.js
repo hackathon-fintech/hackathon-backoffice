@@ -9,7 +9,7 @@
 angular.module('sbAdminApp')
 	.controller('DepositCtrl', function($scope, $state, DTOptionsBuilder) {
 		//Predefine options for table
-		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);		
+		$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(25);
 
 		$scope.users = {}
 
@@ -29,6 +29,12 @@ angular.module('sbAdminApp')
 			$state.go('dashboard.userRequirements', {
 				user: JSON.stringify(user)
 			});
+		}
+
+		$scope.translate = function(string) {
+			if (string == 'TELLER') {
+				return 'Depósito'
+			}
 		}
 
 	});
