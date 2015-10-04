@@ -114,7 +114,7 @@ angular
               }),
               $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/usersInBank.js']
+                files: ['scripts/controllers/usersInBank.js', 'scripts/directives/dashboard/stats/stats.js']
               })
           }
         }
@@ -130,7 +130,7 @@ angular
               }),
               $ocLazyLoad.load({
                 name: 'sbAdminApp',
-                files: ['scripts/controllers/deposit.js']
+                files: ['scripts/controllers/deposit.js', 'scripts/directives/dashboard/stats/stats.js']
               })
           }
         }
