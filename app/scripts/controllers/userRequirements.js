@@ -47,15 +47,19 @@ angular.module('sbAdminApp')
 			return total
 		}
 
-		$scope.sendDeposit = function(status, deposit) {
+		$scope.sendDeposit = function(status, deposit) {						
+			deposit.status = status;
 			console.log(deposit);
-			$scope.deposits.status = status;
 			$scope.$parent.api.branch.putJson({
 				rut: $scope.user.rut,
 				body: deposit
 			}).then(function(response){
 				console.log(response);
-				alert("Éxito realizando depósito");
+				if(status == "DONE"){
+					alert("Éxito realizando depósito");
+				}else if(status == "IGNORE"){
+					alert("Éxito ignorando depósito");
+				}				
 				$state.reload();
 			}, function(error){
 				console.log(error);
