@@ -13,23 +13,30 @@ angular.module('sbAdminApp')
 
 		$scope.users = {};
 
-		$scope.$parent.api.branch.getJsonAll({
-			branchName: 'MONEDA',
-			action: null,
-			token: window.localStorage['APP_SECRET']
-		}).then(function(response) {
-			console.log(response);
-			$scope.users = response;
-		}, function(error) {
-			console.log(error);
-		})
+		function bringAll() {
+			$scope.$parent.api.branch.getJsonAll({
+				branchName: 'MONEDA',
+				action: "",
+				token: window.localStorage['APP_SECRET']
+			}).then(function(response) {
+				console.log(response);
+				$scope.users = response;
+			}, function(error) {
+				console.log(error);
+			})			
+		}
+
+		setInterval(function() {
+			bringAll();
+		}, 5000);
 
 		$scope.getYesOrNo = function(bool) {
-			if(bool){
+			if (bool) {
 				return "Si"
-			} else{
+			} else {
 				return "No"
 			}
 		}
+
 
 	});
